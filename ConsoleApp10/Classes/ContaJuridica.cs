@@ -13,6 +13,7 @@ namespace ConsoleApp10.Classes
             : base(numero, titular, saldo){
             EmprestimoLimite= emprestimoLimite;
         }
+        //Adicionando o Emprestimo ao saldo da conta
         public void Emprestimo(double saldoTotal){
             if(saldoTotal<= EmprestimoLimite){
                 Saldo += saldoTotal;

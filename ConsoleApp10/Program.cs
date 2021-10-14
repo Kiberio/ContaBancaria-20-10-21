@@ -7,6 +7,7 @@ namespace ConsoleApp10.Classes
     {
         static void Main(string[] args)
         {
+            //incerindo as primeiras contas
             conta acc = new conta(1001, "Goku", 0.0);
             ContaJuridica bacc = new ContaJuridica(1002, "Goten", 0.0, 500.0);
             //UPCASTING
@@ -17,13 +18,15 @@ namespace ConsoleApp10.Classes
             //DOWNCASTING
             ContaJuridica acc4 = (ContaJuridica)acc2;
             acc4.Emprestimo(100.0);
+            //Caso a conta 3 for juridica ele realiza o emprestimo
             if(acc3 is ContaJuridica)
             {
-                //ContaPoupancaacc5 = (ContaPoupanca)acc3
+                //ContaPoupanca acc5 = (ContaPoupanca)acc3
                 ContaJuridica acc5 = (ContaJuridica)acc3;
                 acc5.Emprestimo(200.0);
                 Console.WriteLine("Emprestimo!");
             }
+            //Caso a conta 3 for poupança ele atualiza o saldo
             if(acc3 is ContaPoupanca)
             {
                 //ContaPoupancaacc5 = (ContaPoupanca)acc3

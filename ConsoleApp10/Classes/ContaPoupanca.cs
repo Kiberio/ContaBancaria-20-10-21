@@ -18,6 +18,7 @@ namespace ConsoleApp10.Classes
         {
             Saldo += Saldo * TaxaJuros;
         }
+        //Criação da função para sacar o dinheiro
         public override void Saque(double saldoTotal) 
         {
             base.Saque(saldoTotal);
