@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace ConsoleApp10.Classes
 {
@@ -21,7 +17,7 @@ namespace ConsoleApp10.Classes
             Saldo = saldo;
         }
         //Método de Saque
-        public void Saque(double saldoTotal){
+        public virtual void Saque(double saldoTotal){
             Saldo -= saldoTotal;
           }
         //Método de Deposito

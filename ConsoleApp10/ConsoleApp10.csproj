@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Classes\conta.cs" />
     <Compile Include="Classes\ContaJuridica.cs" />
+    <Compile Include="Classes\ContaPoupanca.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
