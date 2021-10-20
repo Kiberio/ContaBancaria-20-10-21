@@ -2,7 +2,7 @@
 
 namespace ConsoleApp10.Classes
 {
-    class conta
+    abstract class conta
     {
         //Declarações das variáveis e uso do encapsulamento
         public int Numero { get; private set;}

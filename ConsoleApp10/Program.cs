@@ -1,5 +1,6 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Globalization;
 
 namespace ConsoleApp10.Classes
 {
@@ -7,32 +8,25 @@ namespace ConsoleApp10.Classes
     {
         static void Main(string[] args)
         {
-            //incerindo as primeiras contas
-            conta acc = new conta(1001, "Goku", 0.0);
-            ContaJuridica bacc = new ContaJuridica(1002, "Goten", 0.0, 500.0);
-            //UPCASTING
-            conta acc1 = bacc;
-            conta acc2 = new ContaJuridica(1003, "Trunks", 0.0, 200.00);
-            conta acc3 = new ContaPoupanca(1004, "Vegeta", 0.0, 0.01);
-
-            //DOWNCASTING
-            ContaJuridica acc4 = (ContaJuridica)acc2;
-            acc4.Emprestimo(100.0);
-            //Caso a conta 3 for juridica ele realiza o emprestimo
-            if(acc3 is ContaJuridica)
+            List<conta> list = new List<conta>();
+            list.Add(new ContaPoupanca(1001, "Terry", 500.0, 0.01));
+            list.Add(new ContaJuridica(1002, "Andy", 500.0, 400.0));
+            list.Add(new ContaPoupanca(1003, "Joe", 500.0, 0.01));
+            list.Add(new ContaJuridica(1002, "Mae", 500.0, 400.0));
+            double soma = 0.0;
+            foreach (conta acc in list)
             {
-                //ContaPoupanca acc5 = (ContaPoupanca)acc3
-                ContaJuridica acc5 = (ContaJuridica)acc3;
-                acc5.Emprestimo(200.0);
-                Console.WriteLine("Emprestimo!");
+                soma += acc.Saldo;
             }
-            //Caso a conta 3 for poupança ele atualiza o saldo
-            if(acc3 is ContaPoupanca)
+            Console.WriteLine("Total do saldo de todas as contas: " +soma.ToString("F2", CultureInfo.InvariantCulture));
+            foreach (conta acc in list)
             {
-                //ContaPoupancaacc5 = (ContaPoupanca)acc3
-                ContaPoupanca acc5 = acc3 as ContaPoupanca;
-                acc5.atualizacaoSaldo();
-                Console.WriteLine("Atualizado!");
+                acc.Saque(10.0);
+            }
+            foreach (conta acc in list)
+            {
+                Console.WriteLine("Atualização do saldo das contas ");
+                _ = +acc.Numero + ": " + acc.Saldo.ToString("F2", CultureInfo.InvariantCulture);
             }
             Console.ReadKey();
         }
